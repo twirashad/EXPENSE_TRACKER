@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
-import 'package:expense_tracker/expenses_list.dart';
+import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -14,20 +14,14 @@ class Expenses extends StatefulWidget {
 class _ExpensesState extends State<Expenses> {
   final List<Expense> _registeredExpenses = [
     Expense(
-      category: Category.food,
-      title: 'Breakfast',
+      category: Category.work,
+      title: 'Flutter Course',
       amount: 12.99,
       date: DateTime.now(),
     ),
     Expense(
-      category: Category.travel,
-      title: 'Taxi',
-      amount: 25.50,
-      date: DateTime.now(),
-    ),
-    Expense(
       category: Category.leisure,
-      title: 'Cinema',
+      title: 'Zoo Visit',
       amount: 15.00,
       date: DateTime.now(),
     ),
