@@ -1,8 +1,8 @@
 import 'package:uuid/uuid.dart';
 import 'package:intl/intl.dart';
 
-const uuid = Uuid();
 final formatter = DateFormat.yMd();
+const uuid = Uuid();
 
 const categoryIcons = {
   Category.food: '🍔',
