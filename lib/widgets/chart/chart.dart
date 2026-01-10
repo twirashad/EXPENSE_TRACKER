@@ -41,8 +41,8 @@ class Chart extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         gradient: LinearGradient(
           colors: [
-            Theme.of(context).colorScheme.primary.withOpacity(0.3),
-            Theme.of(context).colorScheme.primary.withOpacity(0.0),
+            Theme.of(context).colorScheme.primary.withValues(alpha: 0.3),
+            Theme.of(context).colorScheme.primary.withValues(alpha: 0.0),
           ],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
@@ -55,11 +55,12 @@ class Chart extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 for (final bucket in buckets) // alternative to map()
-                  ChartBar(
-                    fill: bucket.totalExpenses == 0
-                        ? 0
-                        : bucket.totalExpenses / maxTotalExpense,
-                  ),
+                  // ChartBar(
+                  //   fill: bucket.totalExpenses == 0
+                  //       ? 0
+                  //       : bucket.totalExpenses / maxTotalExpense,
+                  // ),
+                  ChartBar(fill:bucket.totalExpenses / maxTotalExpense ),
               ],
             ),
           ),
@@ -70,13 +71,13 @@ class Chart extends StatelessWidget {
                   (bucket) => Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4),
-                      child:  Icon(
+                      child: Icon(
                         categoryIcons[bucket.category]!,
                         color: isDarkMode
                             ? Theme.of(context).colorScheme.secondary
                             : Theme.of(
                                 context,
-                              ).colorScheme.primary.withOpacity(0.7),
+                              ).colorScheme.primary.withValues(alpha: 0.7),
                       ),
                     ),
                   ),
